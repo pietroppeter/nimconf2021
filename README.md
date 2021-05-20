@@ -20,3 +20,5 @@ slides for my presentation of nimib at NimConf2021
 - [ ] history, design and philosphy of nimib
 - [ ] roadmap/vision
 - [ ] thanks
+- [ ] bonus: neveal
+- [ ] bonus: plausible pledge: build your nim audience!
