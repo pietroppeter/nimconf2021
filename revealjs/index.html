@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>🐳👑2️⃣0️⃣2️⃣1️⃣</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/moon.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+				  <h2>Share your<br>Nim 👑 Adventures<br>with <a href="https://github.com/pietroppeter/nimib">Nimib</a> 🐳!</h2>
+					<br>
+					<p><small>slides: <a href="https://github.com/pietroppeter/nimconf2021">github.com/pietroppeter/nimconf2021</a></small></p>
+				</section>
+				<section data-markdown data-auto-animate style="text-align: left;">
+					### 👨‍👩‍👧 Me and Nim
+					
+					* Pietro Peterlongo, [Milan, Italy](https://goo.gl/maps/nWwfT35yM9nHWo4X9)
+					* Python Data Scientist working on a [Supply Chain Planning Software](https://www.toolsgroup.com/)
+					* ran into Nim in Sep, 2018 on HN: [Programming Language Underdog](https://news.ycombinator.com/item?id=18045259)
+				</section>
+				<section data-markdown data-auto-animate style="text-align: left;">
+					### What is Nimib 🐳?
+					
+					A template-based DSL for publishing Nim code and its outputs (text, images, ...).
+
+					Kind of inspired by [Jupyter](https://nbviewer.jupyter.org/url/norvig.com/ipython/Advent%20of%20Code.ipynb),
+					[RMarkdown](https://rmarkdown.rstudio.com/lesson-10.html) and the like...
+				</section>
+				<section data-markdown data-auto-animate style="text-align: left;">
+					### What is Nimib 🐳?
+
+					Target use cases are _tutorials_ and _blogs_.
+
+					[Example-driven development]() striving for:
+
+					* simple API
+					* sane defaults
+					* easy customization
+				</section>
+				<section style="text-align: left;">
+					<h3>Installation</h3>
+					<h2><pre><code class="shell">nimble install nimib</pre></code></h2>
+				</section>
+				<section data-auto-animate style="text-align: left;">
+					<h3>Usage</h3>
+					<p style="font-size:1.5rem"><code>hello_nimoji.nim</code>:</p>
+					<pre><code class="lang-nim" data-trim data-line-numbers>
+					import nimoji
+					echo ":wave: :earth_africa:".emojize
+					</pre></code>
+				</section>
+				<section data-auto-animate style="text-align: left;">
+					<h3>Usage</h3>
+					<p style="font-size:1.5rem"><code>hello_nimoji.nim</code>:</p>
+					<pre><code class="lang-nim" data-trim data-line-numbers="9-10|1|3|5-6|8-10|12|">
+					import nimib
+
+					nbInit # initializes nimib document
+
+					nbText: """# Hello nimoji
+					Say _hi_ to [nimoji](https://github.com/pietroppeter/nimoji)"""
+
+					nbCode: # code output will be captured
+						import nimoji
+						echo ":wave: :earth_africa:".emojize
+					
+					nbSave # creates a hello_nimoji.html with the published document
+					</pre></code>
+				</section>
+				<section style="text-align: left;">
+					<h2><pre><code class="shell">nim r hello_nimoji</pre></code></h2>
+				</section>
+				<section style="text-align: left;">
+					<p style="font-size:1.5rem"><code>hello_nimoji.html</code>:</p>
+					<iframe src="hello_nimoji.html" style="width: 100%; height: 350px"></iframe>
+					<p>Default theme is styled with <a href="https://watercss.kognise.dev/">🌊 water.css</a></p>
+					<p>Highlighting compatible with <a href="https://highlightjs.org/static/demo/">highlight.js</a> styling</p>
+				</section>
+				<section style="text-align: left;">
+					<h3>How to show an image</h3>
+					<iframe src="https://pietroppeter.github.io/nblog/drafts/random_palette.html" class="fullframe"></iframe>
+				</section>
+				<section style="text-align: left;">
+					<h3>How to use Latex (powered by <a href="https://katex.org/">Katex</a>)</h3>
+					<iframe src="https://pietroppeter.github.io/nblog/drafts/bernoulli_and_beyond.html" class="fullframe"></iframe>
+				</section>
+				<section style="text-align: left;">
+					<h3>How to customize stylesheet</h3>
+					<iframe src="https://pietroppeter.github.io/nimib/numerical.html" class="fullframe"></iframe>
+				</section>
+				<section style="text-align: left;">
+					<h3>How does customization work? With <a href="https://github.com/soasme/nim-mustache">Mustache!</a></h3>
+					<iframe src="https://pietroppeter.github.io/nimib/mostaccio.html" class="fullframe"></iframe>
+				</section>
+				<section style="text-align: left;">
+					<h3>How to extend the DSL (<a href="https://github.com/soasme/nim-markdown">Markdown</a> cheatsheet)</h3>
+					<iframe src="https://pietroppeter.github.io/nimib/cheatsheet.html" class="fullframe"></iframe>
+				</section>
+				<section style="text-align: left;">
+					<h3>How to create a new theme: <a href="https://github.com/pietroppeter/nimibook">Nimibook</a></h3>
+					<iframe src="https://pietroppeter.github.io/nimibook/" class="fullframe"></iframe>
+				</section>
+				<section data-markdown data-auto-animate style="text-align: left;">
+					### Other examples
+
+					* [nimib](https://pietroppeter.github.io/nimib), nimib documentation
+					  is produced with nimib and contains more examples
+					* [nblog](https://pietroppeter.github.io/nblog), a blog about nim ecosystem
+					  built with nimib, still to be themed
+					* [adventofnim](https://pietroppeter.github.io/adventofnim), my solutions for advent of code,
+					  is the first thing I did with Nimib (and also the first thing I did with Nim)
+				</section>
+				<section data-markdown data-auto-animate style="text-align: left;">
+					### Other examples
+
+					* [SciNim/getting-started](https://github.com/SciNim/getting-started) is a community effort to show how to use nim scientific libraries
+					  and it uses [Nimibook](https://github.com/pietroppeter/nimibook)
+					* [Introduction to Binarylang](https://ajusa.github.io/binarylang-fun/intro.html) is the first documented public usage of nimib not by me
+					* [Nimiboost](https://github.com/HugoGranstrom/nimiBoost/) is a VS Code extension to Highlight Markdown in Nimib files and preview the result in a separate panel.
+					* [nimibujo](https://github.com/zetashift/nimibujo) is a port of LoqSeq Bujo Theme for Nimib
+					* ... _keep them coming!_
+				</section>
+				<section data-markdown data-trim data-auto-animate style="text-align: left;">
+### Roadmap
+
+1. improve many small details
+	- preserve code in block as in source [#20](https://github.com/pietroppeter/nimib/issues/20)
+	- redesign how paths are handled [#55](https://github.com/pietroppeter/nimib/issues/20)
+	- refactor global objects [#25](https://github.com/pietroppeter/nimib/issues/25)
+				</section>
+				<section data-markdown data-auto-animate style="text-align: left;">
+### Roadmap
+
+1. improve many small details
+2. create new themes
+	- improve default functionalities for blogging [#30](https://github.com/pietroppeter/nimib/issues/30)
+	- steal from the masters ([neveal](https://github.com/pietroppeter/neveal), [npapermib](https://github.com/pietroppeter/npapermib), [niminal-mibstakes](https://github.com/pietroppeter/niminal-mibstakes))
+				</section>
+				<section data-markdown data-auto-animate style="text-align: left;">
+### Roadmap
+
+1. improve many small details
+2. create new themes
+3. extend the dsl
+	- refactoring rendering [#35](https://github.com/pietroppeter/nimib/pull/35)
+	- support workflows involving js backend [#34](https://github.com/pietroppeter/nimib/issues/34)
+				</section>
+				<section data-markdown data-auto-animate style="text-align: left;">
+### Roadmap
+
+1. improve many small details
+2. create new themes
+3. extend the dsl
+4. full interactivity (build apps like in [streamlit](https://streamlit.io/), edit code like in [jupyter](https://jupyter.org/), ...)
+				</section>
+				<section data-markdown data-auto-animate style="text-align: left;">
+					### 🙏 Thanks
+
+					[soasme](https://github.com/soasme) (for [nim-markdown](https://github.com/soasme/nim-markdown) and [nim-mustache](https://github.com/soasme/nim-mustache)),
+					[Clonkk](https://github.com/Clonkk), [yardanico](https://github.com/yardanico),
+					[HugoGranstrom](https://github.com/HugoGranstrom), [zetashift](https://github.com/zetashift),
+					[ajusa](https://github.com/ajusa), all those who have put a ⭐ on the repo, ...
+				
+				</section>
+				<section data-markdown data-auto-animate style="text-align: left;">
+					### 🙏 Thanks
+
+					#### y'all for listening!
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				//slideNumber: 'c/t',  // do not really need this since it already has progress bar in the bottom. still useful when creating
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			}).then(() => {
+				// https://github.com/hakimel/reveal.js/issues/2761 the following adds nim highlighting
+				const hljs = RevealHighlight().hljs;
+				hljs.registerLanguage("nim",(()=>{"use strict";return e=>({name:"Nim",keywords:{
+					keyword:["addr","and","as","asm","bind","block","break","case","cast","const","continue","converter","discard","distinct","div","do","elif","else","end","enum","except","export","finally","for","from","func","generic","guarded","if","import","in","include","interface","is","isnot","iterator","let","macro","method","mixin","mod","nil","not","notin","object","of","or","out","proc","ptr","raise","ref","return","shared","shl","shr","static","template","try","tuple","type","using","var","when","while","with","without","xor","yield"],
+					literal:["true","false"],
+					type:["int","int8","int16","int32","int64","uint","uint8","uint16","uint32","uint64","float","float32","float64","bool","char","string","cstring","pointer","expr","stmt","void","auto","any","range","array","openarray","varargs","seq","set","clong","culong","cchar","cschar","cshort","cint","csize","clonglong","cfloat","cdouble","clongdouble","cuchar","cushort","cuint","culonglong","cstringarray","semistatic"],
+					built_in:["stdin","stdout","stderr","result"]},contains:[{className:"meta",
+					begin:/\{\./,end:/\.\}/,relevance:10},{className:"string",begin:/[a-zA-Z]\w*"/,
+					end:/"/,contains:[{begin:/""/}]},{className:"string",begin:/([a-zA-Z]\w*)?"""/,
+					end:/"""/},e.QUOTE_STRING_MODE,{className:"type",begin:/\b[A-Z]\w+\b/,
+					relevance:0},{className:"number",relevance:0,variants:[{
+					begin:/\b(0[xX][0-9a-fA-F][_0-9a-fA-F]*)('?[iIuU](8|16|32|64))?/},{
+					begin:/\b(0o[0-7][_0-7]*)('?[iIuUfF](8|16|32|64))?/},{
+					begin:/\b(0(b|B)[01][_01]*)('?[iIuUfF](8|16|32|64))?/},{
+					begin:/\b(\d[_\d]*)('?[iIuUfF](8|16|32|64))?/}]},e.HASH_COMMENT_MODE]})})());
+			});
+		</script>
+		<!-- https://stackoverflow.com/a/37518822/4178189 for header/footer --> 
+		<style type="text/css">
+    /* 1. Style header/footer <div> so they are positioned as desired. */
+    #header-left {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+				font-size: 0.6em;
+				padding: 0.2em;
+    }
+    #header-right {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+				font-size: 0.6em;
+				padding: 0.2em;
+    }
+    #footer-left {
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+				font-size: 0.6em;
+				padding: 0.2em;
+    }
+		.twocolumn {
+				display: grid;
+				grid-template-columns: 2fr 1fr;
+				grid-gap: 10px;
+				text-align: left;
+		}
+		.fullframe {
+			width: 100%;
+			height: 500px;
+		}
+</style>
+
+<!-- 2. Create hidden header/footer <div> 
+<div id="hidden" style="display:none;">
+    <div id="header">
+        <div id="header-left">👑 NimConf 2️⃣0️⃣2️⃣1️⃣</div>
+        <div id="header-right">Pietro Peterlongo</div>
+        <div id="footer-left">Share your Nim 👑 Adventures with Nimib 🐳!</div>
+    </div>
+</div>
+-->
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+    // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+    var header = $('#header').html();
+    if ( window.location.search.match( /print-pdf/gi ) ) {
+        Reveal.addEventListener( 'ready', function( event ) {
+            $('.slide-background').append(header);
+        });
+    }
+    else {
+        $('div.reveal').append(header);
+   }
+</script>
+	</body>
+</html>
