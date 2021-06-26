@@ -1,4 +1,4 @@
-# nimconf2021slides
+# nimconf2021 slides
 
 slides for my presentation of nimib at [NimConf2021](https://conf.nim-lang.org/). Video [here](https://www.youtube.com/watch?v=sWA58Wtk6L8&list=PLxLdEZg8DRwRXNrY7yyGU0-g_GRSyRGKo&index=3)
 
